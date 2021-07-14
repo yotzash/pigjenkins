@@ -51,6 +51,9 @@ pipeline {
         steps{
           script {
             dockerImage.run("-p 8096:3000 --rm --name testContainer")
+          }
+        }
+    }
 
   post {
     always {
