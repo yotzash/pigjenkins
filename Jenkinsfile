@@ -4,6 +4,7 @@ pipeline {
   
   environment {
     registry = 'yotzash-dockerhub/jenkinstest'
+    registryCredential = 'yotzash-dockerhub'
     DOCKERHUB_CREDENTIALS = credentials('yotzash-dockerhub')
     dockerImage = ''
   }
