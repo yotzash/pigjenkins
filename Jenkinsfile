@@ -23,17 +23,18 @@ pipeline {
     }
     stage('Building image') {
         steps {
-            script {
-              dockerImage = docker.build registry // + ":$BUILD_NUMBER"
-            }
+          sh 'docker build -t registryCredential/jenkinstest'
+        }
         }
     }
-    stage('Deploy image') {
+    stage('Login') {
+      steps {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+    }
+    stage('Push image') {
         steps {
-          script {
-            docker.withRegistry('', registryCredential) {
-              dockerImage.push()
-            }
+          sh 'docker push registryCredential/jenkinstest'
           }
         }
     }
