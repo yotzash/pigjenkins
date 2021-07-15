@@ -23,7 +23,7 @@ pipeline {
     }
     stage('Building image') {
         steps {
-          sh 'docker build -t yotzash/jenkinstest'
+          sh 'docker build -t yotzash/jenkinstest .'
         }
     }
     stage('Login') {
