@@ -23,7 +23,7 @@ pipeline {
     }
     stage('Building image') {
         steps {
-          sh 'docker build -t registryCredential/jenkinstest'
+          sh 'docker build -t yotzash/jenkinstest'
         }
     }
     stage('Login') {
@@ -33,7 +33,7 @@ pipeline {
     }
     stage('Push image') {
         steps {
-          sh 'docker push registryCredential/jenkinstest'
+          sh 'docker push yotzash/jenkinstest'
         }
     }
     stage('docker stop container') {
