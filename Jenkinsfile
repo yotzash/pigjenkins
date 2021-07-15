@@ -3,6 +3,7 @@ pipeline {
   agent any
   
   environment {
+    registry = 'yotzash-dockerhub/jenkinstest'
     DOCKERHUB_CREDENTIALS = credentials('yotzash-dockerhub')
     dockerImage = ''
   }
