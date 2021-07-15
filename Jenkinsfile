@@ -14,11 +14,6 @@ pipeline {
             git 'https://github.com/yotzash/pigjenkins.git'
         }
     }
-    stage('Checkout') {
-        steps {
-            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yotzash/pigjenkins.git']]])
-        }
-    }
     stage('Building image') {
         steps {
             script {
