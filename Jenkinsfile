@@ -25,7 +25,6 @@ pipeline {
         steps {
           sh 'docker build -t registryCredential/jenkinstest'
         }
-        }
     }
     stage('Login') {
       steps {
@@ -52,4 +51,5 @@ pipeline {
           }
         }
     }
+  }
 }
