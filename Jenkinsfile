@@ -36,11 +36,15 @@ pipeline {
           sh 'docker push yotzash/jenkinstest'
         }
     }
+    stage('docker stop container') {
+        steps {
+          sh 'docker ps -f name=testContainer -q | xargs --no-run-if-empty docker container stop'
+          sh 'docker container ls -a -fname=testContainer -q | xargs -r docker container rm'
+        }
+    }
     stage('Docker Run') {
         steps{
-          script {
-            dockerImage.run("-p 8096:3000 --rm --name testContainer")
-          }
+          sh 'docker run -d -p 8096:3000 jenkinsapp'
         }
     }
   }
