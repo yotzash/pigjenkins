@@ -1,11 +1,11 @@
 pipeline {
-  
-  environment {
-    DOCKERHUB_cREDENTIALS = credentials('yotzash-dockerhub')
-    dockerImage = ''
-  }
 
   agent any
+  
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('yotzash-dockerhub')
+    dockerImage = ''
+  }
   
   stages {
     
@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Checkout') {
         steps {
-            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kovacsbenc3/my-first-repository.git']]])
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yotzash/pigjenkins.git']]])
         }
     }
     stage('Building image') {
