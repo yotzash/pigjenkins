@@ -38,7 +38,7 @@ pipeline {
     }
     stage('Docker Run') {
         steps{
-          sh 'docker run -d -p 8096:3000 jenkins'
+          sh 'docker run -d -p 8096:3000 -t yotzash/jenkinstest'
         }
     }
   }
