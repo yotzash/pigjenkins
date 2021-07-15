@@ -34,7 +34,6 @@ pipeline {
     stage('Push image') {
         steps {
           sh 'docker push registryCredential/jenkinstest'
-          }
         }
     }
     stage('docker stop container') {
